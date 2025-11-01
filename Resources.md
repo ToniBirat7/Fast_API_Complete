@@ -1,5 +1,11 @@
 ## **Resources**
 
+### **Type Annotations in Python**
+
+[MyPy_Type_Annotations](https://www.youtube.com/watch?v=Y9fT4HVdCuQ)
+
+[CoreySchafer_Type_Annotations](https://www.youtube.com/watch?v=RwH2UzC2rIo)
+
 ### **FastAPI**
 
 [NeuralNine_FastAPI_Playlist](https://www.youtube.com/watch?v=rvFsGRvj9jo)
