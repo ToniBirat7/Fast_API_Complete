@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
-async def home():
-  print("Hi,")
-  return {"msg" : "Welcome Home"}
+@app.get("/home/{user_id}/")
+async def home(user_id : int):
+  print(f"Hi, {user_id}")
+  return {"msg" : f"Welcome Home {user_id}"}
