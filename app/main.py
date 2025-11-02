@@ -43,6 +43,6 @@ async def get_header(user_agent: Annotated[str | None, Header()]):
 
 @app.post("/handle-form/")
 async def handle_form(
-   username: Annotated[str, Form()],
-   password: Annotated[str, Form(min=3, max_length=10 )]):
+   username: Annotated[str, Form(...)],
+   password: Annotated[str, Form(..., min_length=3, max_length=10)]):
    return {"uname" : username, "pwd": password}
