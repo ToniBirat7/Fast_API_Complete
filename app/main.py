@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Cookie
+from fastapi import FastAPI, Cookie, Header
 from pydantic import BaseModel
 from typing import Annotated
 
@@ -35,8 +35,8 @@ async def get_user(user_id: int):
     )
     return user
 
-@app.get("/cookie/")
-async def get_cookie(info: Annotated[str | None, Cookie()]):
-   if info:
-      return info
-   return {"msg": "No Info"}
+@app.get("/header/")
+async def get_header(user_agent: Annotated[str | None, Header()]):
+   if user_agent:
+      return user_agent
+   return {"msg": "No user_agent"}
