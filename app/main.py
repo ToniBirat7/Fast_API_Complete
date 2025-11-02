@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Header, Form
+from fastapi import FastAPI, Header, Form, Request
 from pydantic import BaseModel
 from typing import Annotated
 
@@ -46,3 +46,8 @@ async def handle_form(
    username: Annotated[str, Form(...)],
    password: Annotated[str, Form(..., min_length=3, max_length=10)]):
    return {"uname" : username, "pwd": password}
+
+# Middleware
+@app.middleware("http")
+async def check_middleware(request: Request, call_next):
+   print("Middleware: Before Handling The Request")
