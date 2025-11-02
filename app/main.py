@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Cookie, Header
+from fastapi import FastAPI, Header, Form
 from pydantic import BaseModel
 from typing import Annotated
 
@@ -40,3 +40,9 @@ async def get_header(user_agent: Annotated[str | None, Header()]):
    if user_agent:
       return user_agent
    return {"msg": "No user_agent"}
+
+@app.post("/handle-form/")
+async def handle_form(
+   username: Annotated[str, Form()],
+   password: Annotated[str, Form()]):
+   return {"uname" : username, "pwd": password}
