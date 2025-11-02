@@ -50,4 +50,4 @@ async def handle_form(
 # Middleware
 @app.middleware("http")
 async def check_middleware(request: Request, call_next):
-   print("Middleware: Before Handling The Request")
+  print("Middleware: Before Handling The Request")
