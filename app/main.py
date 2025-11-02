@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Cookie
 from pydantic import BaseModel
+from typing import Annotated
 
 class User(BaseModel):
     id: int
@@ -33,3 +34,9 @@ async def get_user(user_id: int):
         full_name="John Doe"
     )
     return user
+
+@app.get("/cookie/")
+async def get_cookie(info: Annotated[str | None, Cookie()]):
+   if info:
+      return info
+   return {"msg": "No Info"}
